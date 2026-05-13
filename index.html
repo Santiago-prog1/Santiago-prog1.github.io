@@ -1,204 +1,354 @@
+<!-- ========================= -->
+
+<!-- ARCHIVO: index.html -->
+
+<!-- ========================= -->
+
 <!DOCTYPE html>
+
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Santiago Bringas | Fullstack Developer</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+```
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/styles.css">
+<title>Santiago Bringas | Fullstack Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+<link rel="stylesheet" href="css/styles.css">
+```
+
 </head>
 
 <body>
 
-    <nav>
-        <div class="logo">Santiago.dev</div>
+```
+<!-- NAVBAR -->
 
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#sobre-mi">Sobre mí</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#tecnologias">Tecnologías</a></li>
-            <li><a href="#experiencia">Experiencia</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
+<nav>
 
-    <header id="inicio">
-        <div class="hero">
+    <div class="logo">
+        Santiago.dev
+    </div>
 
-            <div class="hero-text">
-                <h1>
-                    Hola, soy <span>Santiago Bringas</span>
-                </h1>
+    <ul>
 
-                <p>
-                    Fullstack Developer Jr. especializado en Flutter, Django, PostgreSQL y APIs REST.
-                    Desarrollo aplicaciones móviles, sistemas web y soluciones digitales completas,
-                    combinando frontend, backend y despliegue en la nube.
-                </p>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#tecnologias">Tecnologías</a></li>
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#contacto">Contacto</a></li>
 
-                <div class="buttons">
-                    <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
-                    <a href="assets/cv/CV-Santiago-Bringas.pdf" class="btn btn-secondary" download>Descargar CV</a>
-                </div>
-            </div>
+    </ul>
 
-            <div class="hero-image">
-                <img src="assets/img/perfil.jpg" alt="Foto de Santiago Bringas">
+</nav>
+
+<!-- HERO -->
+
+<header id="inicio">
+
+    <div class="hero">
+
+        <div class="hero-text">
+
+            <h1>
+                Hola, soy <span>Santiago Bringas</span>
+            </h1>
+
+            <p>
+                Fullstack Developer Jr. especializado en Flutter,
+                Django, PostgreSQL y APIs REST.
+                Desarrollo aplicaciones móviles, sistemas web y
+                soluciones digitales completas.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#proyectos" class="btn btn-primary">
+                    Ver proyectos
+                </a>
+
+                <a href="assets/cv/CV-Santiago-Bringas.pdf"
+                    class="btn btn-secondary"
+                    download>
+
+                    Descargar CV
+
+                </a>
+
             </div>
 
         </div>
-    </header>
 
-    <section id="sobre-mi">
-        <h2 class="section-title">Sobre mí</h2>
+        <!-- TARJETA VISUAL -->
 
-        <div class="cards">
-            <div class="card">
-                <h3>Perfil profesional</h3>
-                <p>
-                    Técnico Superior en Desarrollo de Software con experiencia en desarrollo de aplicaciones móviles,
-                    backend, bases de datos, integración frontend/backend y despliegue de aplicaciones.
-                </p>
+        <div class="hero-image">
+
+            <div class="code-card">
+
+                <span>Flutter</span>
+                <span>Django REST</span>
+                <span>PostgreSQL</span>
+                <span>Firebase</span>
+                <span>REST APIs</span>
+                <span>Render Cloud</span>
+
             </div>
 
-            <div class="card">
-                <h3>Desarrollo fullstack</h3>
-                <p>
-                    Trabajo con Flutter para aplicaciones móviles y Django REST Framework para backend,
-                    creando APIs REST, sistemas de autenticación, perfiles, feed social y gestión de datos.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Docencia técnica</h3>
-                <p>
-                    También me desempeño como docente técnico, formando estudiantes en programación,
-                    desarrollo web, bases de datos, algoritmos y pensamiento computacional.
-                </p>
-            </div>
         </div>
-    </section>
 
-    <section id="proyectos">
-        <h2 class="section-title">Proyectos destacados</h2>
+    </div>
 
-        <div class="cards">
-            <div class="card">
-                <h3>GEAPP - Aplicación móvil social</h3>
-                <p>
-                    Aplicación móvil desarrollada con Flutter y Django REST Framework.
-                    Incluye autenticación, perfiles editables, feed social, multimedia,
-                    mensajería privada, marketplace, PostgreSQL, Firebase, Cloudinary y backend desplegado en Render.
-                </p>
-            </div>
+</header>
 
-            <div class="card">
-                <h3>Sistema de Gestión para Vivero</h3>
-                <p>
-                    Sistema administrativo para control de stock, ventas, productos y facturación PDF.
-                    Desarrollado con Django, PostgreSQL y Bootstrap, orientado a optimizar procesos internos.
-                </p>
-            </div>
+<!-- SOBRE MI -->
 
-            <div class="card">
-                <h3>Proyectos educativos con Python</h3>
-                <p>
-                    Desarrollo de actividades, interfaces gráficas y proyectos educativos utilizando Python,
-                    Tkinter, HTML, CSS y JavaScript para la enseñanza de programación.
-                </p>
-            </div>
+<section id="sobre-mi">
+
+    <h2 class="section-title">
+        Sobre mí
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>
+                Perfil Profesional
+            </h3>
+
+            <p>
+                Técnico Superior en Desarrollo de Software con experiencia
+                en aplicaciones móviles, backend, bases de datos
+                y despliegue de aplicaciones.
+            </p>
+
         </div>
-    </section>
 
-    <section id="tecnologias">
-        <h2 class="section-title">Tecnologías</h2>
+        <div class="card">
 
-        <div class="tech-container">
-            <div class="tech">Python</div>
-            <div class="tech">Django</div>
-            <div class="tech">Django REST Framework</div>
-            <div class="tech">Flutter</div>
-            <div class="tech">Dart</div>
-            <div class="tech">PostgreSQL</div>
-            <div class="tech">SQLite</div>
-            <div class="tech">MySQL</div>
-            <div class="tech">HTML</div>
-            <div class="tech">CSS</div>
-            <div class="tech">JavaScript</div>
-            <div class="tech">Bootstrap</div>
-            <div class="tech">Git</div>
-            <div class="tech">GitHub</div>
-            <div class="tech">Firebase</div>
-            <div class="tech">Cloudinary</div>
-            <div class="tech">Render</div>
-            <div class="tech">APIs REST</div>
+            <h3>
+                Desarrollo Fullstack
+            </h3>
+
+            <p>
+                Desarrollo de sistemas completos utilizando Flutter,
+                Django REST Framework y PostgreSQL.
+            </p>
+
         </div>
-    </section>
 
-    <section id="experiencia">
-        <h2 class="section-title">Experiencia</h2>
+        <div class="card">
 
-        <div class="cards">
-            <div class="card">
-                <h3>Desarrollador Freelance</h3>
-                <p>
-                    Desarrollo de aplicación móvil social con Flutter, Django REST Framework,
-                    PostgreSQL, Firebase, Cloudinary y Render.
-                </p>
-            </div>
+            <h3>
+                Docencia Técnica
+            </h3>
 
-            <div class="card">
-                <h3>Desarrollador - Sistema de Gestión</h3>
-                <p>
-                    Desarrollo de sistema para vivero con control de stock, ventas,
-                    administración de productos, base de datos y generación de PDF.
-                </p>
-            </div>
+            <p>
+                Formación de estudiantes en programación,
+                desarrollo web, bases de datos y algoritmos.
+            </p>
 
-            <div class="card">
-                <h3>Docente Técnico</h3>
-                <p>
-                    Dictado de materias técnicas en ProA San Pedro e Instituto San Agustín,
-                    orientadas a programación, desarrollo web, bases de datos y software.
-                </p>
-            </div>
         </div>
-    </section>
 
-    <section id="contacto">
-        <h2 class="section-title">Contacto</h2>
+    </div>
 
-        <div class="cards">
-            <div class="card">
-                <h3>Email</h3>
-                <p>santybringas6@gmail.com</p>
-            </div>
+</section>
 
-            <div class="card">
-                <h3>GitHub</h3>
-                <p>
-                    <a href="https://github.com/Santiago-prog1" target="_blank">github.com/Santiago-prog1</a>
-                </p>
-            </div>
+<!-- PROYECTOS -->
 
-            <div class="card">
-                <h3>LinkedIn</h3>
-                <p>
-                    Agregá acá tu enlace de LinkedIn cuando lo tengas actualizado.
-                </p>
-            </div>
+<section id="proyectos">
+
+    <h2 class="section-title">
+        Proyectos Destacados
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>
+                GEAPP
+            </h3>
+
+            <p>
+                Aplicación móvil social desarrollada con Flutter y Django.
+                Incluye feed social, perfiles, multimedia,
+                mensajería, Firebase y PostgreSQL.
+            </p>
+
         </div>
-    </section>
 
-    <footer>
-        <p>© 2026 Santiago Bringas | Fullstack Developer Jr.</p>
-    </footer>
+        <div class="card">
 
-    <script src="js/main.js"></script>
+            <h3>
+                Sistema de Gestión para Vivero
+            </h3>
+
+            <p>
+                Sistema administrativo para control de stock,
+                ventas y facturación PDF utilizando Django,
+                PostgreSQL y Bootstrap.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+                Interfaces con Python
+            </h3>
+
+            <p>
+                Desarrollo de interfaces gráficas y proyectos educativos
+                utilizando Python y Tkinter.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TECNOLOGIAS -->
+
+<section id="tecnologias">
+
+    <h2 class="section-title">
+        Tecnologías
+    </h2>
+
+    <div class="tech-container">
+
+        <div class="tech">Python</div>
+        <div class="tech">Django</div>
+        <div class="tech">Flutter</div>
+        <div class="tech">PostgreSQL</div>
+        <div class="tech">JavaScript</div>
+        <div class="tech">Firebase</div>
+        <div class="tech">Git</div>
+        <div class="tech">REST APIs</div>
+        <div class="tech">Bootstrap</div>
+        <div class="tech">HTML/CSS</div>
+
+    </div>
+
+</section>
+
+<!-- EXPERIENCIA -->
+
+<section id="experiencia">
+
+    <h2 class="section-title">
+        Experiencia
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>
+                Desarrollador Freelance
+            </h3>
+
+            <p>
+                Desarrollo de aplicación móvil social utilizando Flutter,
+                Django REST Framework y PostgreSQL.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+                Sistema de Gestión
+            </h3>
+
+            <p>
+                Desarrollo de sistema administrativo para vivero
+                con control de stock y facturación PDF.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+                Docente Técnico
+            </h3>
+
+            <p>
+                Formación técnica en programación,
+                desarrollo web y bases de datos.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACTO -->
+
+<section id="contacto">
+
+    <h2 class="section-title">
+        Contacto
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>Email</h3>
+
+            <p>
+                santybringas6@gmail.com
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>GitHub</h3>
+
+            <p>
+                github.com/Santiago-prog1
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Portfolio</h3>
+
+            <p>
+                santiago-prog1.github.io
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 Santiago Bringas | Fullstack Developer Jr.
+    </p>
+
+</footer>
+
+<script src="js/main.js"></script>
+```
 
 </body>
 
