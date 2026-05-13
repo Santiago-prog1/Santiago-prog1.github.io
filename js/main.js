@@ -1,57 +1,113 @@
-// ===============================
+// ==========================
 // PORTFOLIO SANTIAGO BRINGAS
-// Archivo: js/main.js
-// Funciones: animaciones, navbar y experiencia de usuario
-// ===============================
+// main.js
+// ==========================
 
 
-// Cambia el estilo del menú cuando el usuario hace scroll
-window.addEventListener("scroll", function () {
-    const nav = document.querySelector("nav");
+// ==========================
+// ANIMACIONES REVEAL
+// ==========================
+
+const revealElements = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+
+    revealElements.forEach((element) => {
+
+        const windowHeight = window.innerHeight;
+        const revealTop = element.getBoundingClientRect().top;
+
+        if (revealTop < windowHeight - 100) {
+            element.classList.add("active");
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+revealOnScroll();
+
+
+// ==========================
+// NAVBAR SCROLL EFFECT
+// ==========================
+
+const navbar = document.querySelector(".custom-navbar");
+
+window.addEventListener("scroll", () => {
 
     if (window.scrollY > 50) {
-        nav.classList.add("nav-scroll");
+
+        navbar.style.background = "rgba(8,17,32,0.98)";
+        navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,0.25)";
+
     } else {
-        nav.classList.remove("nav-scroll");
+
+        navbar.style.background = "rgba(8,17,32,0.92)";
+        navbar.style.boxShadow = "none";
+
     }
+
 });
 
 
-// Animación de aparición para tarjetas y secciones
-const elementosAnimados = document.querySelectorAll(".card, .tech, .hero-text, .hero-image");
+// ==========================
+// EFECTO PARALLAX HERO
+// ==========================
 
-const observador = new IntersectionObserver(
-    function (entradas) {
-        entradas.forEach(function (entrada) {
-            if (entrada.isIntersecting) {
-                entrada.target.classList.add("show");
-            }
-        });
-    },
-    {
-        threshold: 0.15
-    }
-);
+window.addEventListener("scroll", () => {
 
-elementosAnimados.forEach(function (elemento) {
-    elemento.classList.add("hidden");
-    observador.observe(elemento);
+    const scrolled = window.scrollY;
+
+    const hero = document.querySelector(".hero-section");
+
+    hero.style.backgroundPositionY = `${scrolled * 0.4}px`;
+
 });
 
 
-// Cierra el menú mobile al tocar un enlace
-const enlacesMenu = document.querySelectorAll("nav a");
+// ==========================
+// FLOATING CARDS EFFECT
+// ==========================
 
-enlacesMenu.forEach(function (enlace) {
-    enlace.addEventListener("click", function () {
-        const menu = document.querySelector("nav ul");
+const floatingCards = document.querySelectorAll(".floating-card");
 
-        if (menu.classList.contains("active")) {
-            menu.classList.remove("active");
+floatingCards.forEach((card, index) => {
+
+    card.style.animationDelay = `${index * 0.6}s`;
+
+});
+
+
+// ==========================
+// SCROLL SUAVE LINKS
+// ==========================
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+    anchor.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if (target) {
+
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+
         }
+
     });
+
 });
 
 
-// Mensaje simple en consola para presentación profesional
-console.log("Portfolio de Santiago Bringas cargado correctamente.");
+// ==========================
+// CONSOLE MESSAGE
+// ==========================
+
+console.log("Portfolio Santiago Bringas cargado correctamente.");
