@@ -5,20 +5,23 @@
 
 
 // ==========================
-// ANIMACIONES REVEAL
+// REVEAL ANIMATIONS
 // ==========================
 
 const revealElements = document.querySelectorAll(".reveal");
 
 function revealOnScroll() {
 
+    const triggerBottom = window.innerHeight * 0.85;
+
     revealElements.forEach((element) => {
 
-        const windowHeight = window.innerHeight;
-        const revealTop = element.getBoundingClientRect().top;
+        const elementTop = element.getBoundingClientRect().top;
 
-        if (revealTop < windowHeight - 100) {
+        if (elementTop < triggerBottom) {
+
             element.classList.add("active");
+
         }
 
     });
@@ -27,20 +30,28 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 
-revealOnScroll();
+
+// ACTIVAR AL CARGAR
+
+window.addEventListener("load", () => {
+
+    revealOnScroll();
+
+});
 
 
 // ==========================
-// NAVBAR SCROLL EFFECT
+// NAVBAR EFFECT
 // ==========================
 
 const navbar = document.querySelector(".custom-navbar");
 
 window.addEventListener("scroll", () => {
 
-    if (window.scrollY > 50) {
+    if (window.scrollY > 40) {
 
         navbar.style.background = "rgba(8,17,32,0.98)";
+        navbar.style.backdropFilter = "blur(18px)";
         navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,0.25)";
 
     } else {
@@ -54,35 +65,20 @@ window.addEventListener("scroll", () => {
 
 
 // ==========================
-// EFECTO PARALLAX HERO
-// ==========================
-
-window.addEventListener("scroll", () => {
-
-    const scrolled = window.scrollY;
-
-    const hero = document.querySelector(".hero-section");
-
-    hero.style.backgroundPositionY = `${scrolled * 0.4}px`;
-
-});
-
-
-// ==========================
-// FLOATING CARDS EFFECT
+// FLOATING CARDS DELAY
 // ==========================
 
 const floatingCards = document.querySelectorAll(".floating-card");
 
 floatingCards.forEach((card, index) => {
 
-    card.style.animationDelay = `${index * 0.6}s`;
+    card.style.animationDelay = `${index * 0.7}s`;
 
 });
 
 
 // ==========================
-// SCROLL SUAVE LINKS
+// SMOOTH SCROLL
 // ==========================
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
