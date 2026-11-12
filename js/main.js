@@ -1,109 +1,101 @@
-// ==========================
-// PORTFOLIO SANTIAGO BRINGAS
-// main.js
-// ==========================
-
-
-// ==========================
-// REVEAL ANIMATIONS
-// ==========================
-
-const revealElements = document.querySelectorAll(".reveal");
-
-function revealOnScroll() {
-
-    const triggerBottom = window.innerHeight * 0.85;
-
-    revealElements.forEach((element) => {
-
-        const elementTop = element.getBoundingClientRect().top;
-
-        if (elementTop < triggerBottom) {
-
-            element.classList.add("active");
-
-        }
-
+const menu = document.querySelector('.menu');
+const navigation = document.querySelector('#navigation');
+menu.addEventListener('click', () => {
+  const open = menu.getAttribute('aria-expanded') !== 'true';
+  menu.setAttribute('aria-expanded', String(open));
+  navigation.classList.toggle('open', open);
+});
+navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  menu.setAttribute('aria-expanded', 'false');
+  navigation.classList.remove('open');
+}));
+document.querySelectorAll('[data-filter]').forEach(button => {
+  button.addEventListener('click', () => {
+    document.querySelectorAll('[data-filter]').forEach(item => {
+      item.classList.toggle('active', item === button);
+      item.setAttribute('aria-pressed', String(item === button));
     });
+    document.querySelectorAll('[data-category]').forEach(project => {
+      project.hidden = button.dataset.filter !== 'all' && project.dataset.category !== button.dataset.filter;
+    });
+  });
+});
 
+// Respeta la configuración de accesibilidad del sistema.
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+const animatedElements = document.querySelectorAll(
+  '.hero .eyebrow, .intro, h1, .hero-bottom, .hero-strip, .section-head, .project, .auto-grid article, .profile > div, .learning > div, .contact .wrap'
+);
+
+if (!motionPreference.matches && 'IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  animatedElements.forEach((element, index) => {
+    element.classList.add('reveal');
+    element.style.setProperty('--reveal-delay', `${(index % 3) * 70}ms`);
+    revealObserver.observe(element);
+  });
+
+  // Si el usuario activa movimiento reducido, muestra todo inmediatamente.
+  motionPreference.addEventListener('change', event => {
+    if (event.matches) {
+      revealObserver.disconnect();
+      animatedElements.forEach(element => element.classList.add('is-visible'));
+    }
+  });
 }
 
-window.addEventListener("scroll", revealOnScroll);
+// Barra de progreso y aspecto de la navegación al desplazarse.
+const progress = document.createElement('div');
+progress.className = 'reading-progress';
+progress.setAttribute('aria-hidden', 'true');
+document.body.appendChild(progress);
+let scrollScheduled = false;
+function updateScroll() {
+  const distance = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.transform = `scaleX(${distance > 0 ? window.scrollY / distance : 0})`;
+  document.querySelector('.nav').classList.toggle('scrolled', window.scrollY > 25);
+  scrollScheduled = false;
+}
+window.addEventListener('scroll', () => {
+  if (!scrollScheduled) {
+    scrollScheduled = true;
+    window.requestAnimationFrame(updateScroll);
+  }
+}, { passive: true });
+window.addEventListener('resize', updateScroll);
+updateScroll();
 
-
-// ACTIVAR AL CARGAR
-
-window.addEventListener("load", () => {
-
-    revealOnScroll();
-
-});
-
-
-// ==========================
-// NAVBAR EFFECT
-// ==========================
-
-const navbar = document.querySelector(".custom-navbar");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 40) {
-
-        navbar.style.background = "rgba(8,17,32,0.98)";
-        navbar.style.backdropFilter = "blur(18px)";
-        navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,0.25)";
-
-    } else {
-
-        navbar.style.background = "rgba(8,17,32,0.92)";
-        navbar.style.boxShadow = "none";
-
-    }
-
-});
-
-
-// ==========================
-// FLOATING CARDS DELAY
-// ==========================
-
-const floatingCards = document.querySelectorAll(".floating-card");
-
-floatingCards.forEach((card, index) => {
-
-    card.style.animationDelay = `${index * 0.7}s`;
-
-});
-
-
-// ==========================
-// SMOOTH SCROLL
-// ==========================
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-    anchor.addEventListener("click", function (e) {
-
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute("href"));
-
-        if (target) {
-
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-
-        }
-
+// Indica la sección actual en la navegación.
+if ('IntersectionObserver' in window) {
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navigation.querySelectorAll('a').forEach(link => {
+          const current = link.hash === `#${entry.target.id}`;
+          link.classList.toggle('current', current);
+          if (current) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      }
     });
+  }, { rootMargin: '-15% 0px -55% 0px', threshold: 0 });
+  document.querySelectorAll('main section[id]').forEach(section => sectionObserver.observe(section));
+}
 
+// Cierra el menú con Escape y devuelve el foco al botón.
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') {
+    menu.setAttribute('aria-expanded', 'false');
+    navigation.classList.remove('open');
+    menu.focus();
+  }
 });
 
-
-// ==========================
-// CONSOLE MESSAGE
-// ==========================
-
-console.log("Portfolio Santiago Bringas cargado correctamente.");
